@@ -10,6 +10,6 @@
  - Used error handling: I added error handling to the program to handle cases where the CSV file or the API request fails. This makes the program more robust and helps to prevent crashes.
  - Used the latest exchange rate: I used the price API endpoint provided by CryptoCompare to get the latest exchange rate for each token. This ensures that the program returns the most up-to-date portfolio value.
 ```
-Overall, the design decisions were made to make the program easy to use, maintain, and extend.</p>
+Overall, the design decisions were made to make the program easy to use, maintain, and extend.
 ```
 
