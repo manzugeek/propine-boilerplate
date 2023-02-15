@@ -1,30 +1,22 @@
-## Question 1 - Programming
-_We're looking at your programming ability. It must not only work, it should be maintainable._
 
-Let us assume you are a crypto investor. You have made transactions over a period of time which is logged in a CSV file at the [data directory](https://raw.githubusercontent.com/Propine/2b-boilerplate/master/data/transactions.csv). Write a command line program that returns the latest portfolio value per token in USD
+This is a command line program that returns the latest portfolio value per token in USD for the transactions logged in a CSV file.
 
-The program should be ran like this
+Here are some of the design decisions that I made for the program:
 
-```
-npm run start
-```
+    Used Node.js: As the program is a command-line tool, I decided to use Node.js, as it is a widely used platform for building command-line tools and it has a built-in fs module that can be used to read and write to files.
 
-On running, it should return the latest portfolio value per token in USD
+    Used the csv-parser library to parse the CSV file. This library provides a simple API for parsing CSV data and converting it into JavaScript objects.
 
-The CSV file has the following columns
- - timestamp: Integer number of seconds since the Epoch
- - transaction_type: Either a DEPOSIT or a WITHDRAWAL
- - token: The token symbol
- - amount: The amount transacted
+    Used Promises to handle the asynchronous calls to the CryptoCompare API. This makes the code more readable and easier to reason about, as Promises provide a way to handle asynchronous operations in a synchronous way.
 
-Portfolio means the balance of the token where you need to add deposits and subtract withdrawals. You may obtain the exchange rates from [cryptocompare](https://min-api.cryptocompare.com/documentation) where the API is free. You should write it in Node.js as our main stack is in Javascript/Typescript and we need to assess your proficiency.
+    I used environment variables to store the API key for the CryptoCompare API. This helps to keep the API key secure and prevents it from being checked into version control.
+
+    I structured the program into modules, each with a specific responsibility. This makes the code easier to maintain and test, and allows for code reuse.
+
+    Used error handling: I added error handling to the program to handle cases where the CSV file or the API request fails. This makes the program more robust and helps to prevent crashes.
+
+    Used the latest exchange rate: I used the price API endpoint provided by CryptoCompare to get the latest exchange rate for each token. This ensures that the program returns the most up-to-date portfolio value.
+
+Overall, the design decisions were made to make the program easy to use, maintain, and extend.
 
 
-## Submission
-
-Please take no more than 2 hours to finish. We do not track time, hence you can start and end at your own time. Your answers should comprise of the following
-
-  - Source code that you used for deriving the results
-  - README that explains various design decisions that you took.
-
-Commit your answers in a private Github repository(it's free), please do not fork as other candidates will see your answers. Add Zan(liangzan), Ben(BenPropine) as collaborators then inform us that it is done at zan@propine.com, ben.nguyen@propine.com.
